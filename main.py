@@ -23,7 +23,7 @@ print(title)
 def show_msg():
     counter=0
     while getattr(threading.currentThread(), "do_run", True):
-        os.system("cls")
+        os.system("cls" if os.name == "nt" else "clear")
         print(title)
         if counter == 0:
             print(enter_to_play)
@@ -32,5 +32,15 @@ def show_msg():
 show_msg_thread = threading.Thread(target=show_msg)
 show_msg_thread.start()
 input()
-os.system("cls")
+os.system("cls" if os.name == "nt" else "clear")
 show_msg_thread.do_run = False
+print("Historian Rpg: copyright (c) 2022")
+print("ABSOLUTELY NO WARRANTY")
+time.sleep(3)
+os.system("cls" if os.name == "nt" else "clear")
+
+choice = input("Please select load game(l), or new game(n), or quit(q)")
+while choice not in ("l", "n", "\n"):
+    choice = input("Please select load game(l), or new game(n), or quit(q)") 
+if choice == "q":
+    exit()

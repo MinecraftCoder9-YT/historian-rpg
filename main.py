@@ -56,9 +56,9 @@ elif choice == "n":
         choice = input("Do you want the name "+game_name+" for your game(y/n)")
     if choice == "y":
         game = Game(game_name)
-        print("Game created!")
+        print("Game created! (Name: "+game.path + ")")
     else:
         game_name = input("What is the game's name(e.g My_Game)? ")
         game_name.replace(" ", "_")
         game = Game(game_name)
-        print("Game created!")
+        print("Game created! (Name: "+game.path + ")")

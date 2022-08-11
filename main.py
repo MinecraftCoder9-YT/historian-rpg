@@ -1,6 +1,10 @@
 import os
 import time
 import threading
+
+class Game:
+    def __init__(self, path):
+        self.path = path
 os.system("cls")
 title = """
                                                                                                       
@@ -40,7 +44,21 @@ time.sleep(3)
 os.system("cls" if os.name == "nt" else "clear")
 
 choice = input("Please select load game(l), or new game(n), or quit(q)")
-while choice not in ("l", "n", "\n"):
+while choice not in ("l", "n"):
     choice = input("Please select load game(l), or new game(n), or quit(q)") 
 if choice == "q":
     exit()
+elif choice == "n":
+    game_name = input("What is the game's name(e.g My_Game)? ")
+    game_name = game_name.replace(" ", "_")
+    choice = input("Do you want the name "+game_name+" for your game(y/n)")
+    while choice not in ("y", "n"):
+        choice = input("Do you want the name "+game_name+" for your game(y/n)")
+    if choice == "y":
+        game = Game(game_name)
+        print("Game created!")
+    else:
+        game_name = input("What is the game's name(e.g My_Game)? ")
+        game_name.replace(" ", "_")
+        game = Game(game_name)
+        print("Game created!")

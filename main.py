@@ -43,22 +43,23 @@ print("ABSOLUTELY NO WARRANTY")
 time.sleep(3)
 os.system("cls" if os.name == "nt" else "clear")
 
-choice = input("Please select load game(l), or new game(n), or quit(q)")
-while choice not in ("l", "n"):
-    choice = input("Please select load game(l), or new game(n), or quit(q)") 
-if choice == "q":
-    exit()
-elif choice == "n":
-    game_name = input("What is the game's name(e.g My_Game)? ")
-    game_name = game_name.replace(" ", "_")
-    choice = input("Do you want the name "+game_name+" for your game(y/n)")
-    while choice not in ("y", "n"):
-        choice = input("Do you want the name "+game_name+" for your game(y/n)")
-    if choice == "y":
-        game = Game(game_name)
-        print("Game created! (Name: "+game.path + ")")
-    else:
+while True:
+    choice = input("Please select load game(l), or new game(n), or quit(q)")
+    while choice not in ("l", "n"):
+        choice = input("Please select load game(l), or new game(n), or quit(q)") 
+    if choice == "q":
+        exit()
+    elif choice == "n":
         game_name = input("What is the game's name(e.g My_Game)? ")
-        game_name.replace(" ", "_")
-        game = Game(game_name)
-        print("Game created! (Name: "+game.path + ")")
+        game_name = game_name.replace(" ", "_")
+        choice = input("Do you want the name "+game_name+" for your game(y/n)")
+        while choice not in ("y", "n"):
+            choice = input("Do you want the name "+game_name+" for your game(y/n)")
+        if choice == "y":
+            game = Game(game_name)
+            print("Game created! (Name: "+game.path + ")")
+        else:
+            game_name = input("What is the game's name(e.g My_Game)? ")
+            game_name.replace(" ", "_")
+            game = Game(game_name)
+            print("Game created! (Name: "+game.path + ")")

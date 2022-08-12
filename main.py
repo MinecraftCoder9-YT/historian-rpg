@@ -45,7 +45,7 @@ os.system("cls" if os.name == "nt" else "clear")
 
 while True:
     choice = input("Please select load game(l), or new game(n), or quit(q)")
-    while choice not in ("l", "n"):
+    while choice not in ("l", "n", "q"):
         choice = input("Please select load game(l), or new game(n), or quit(q)") 
     if choice == "q":
         exit()
